@@ -6,6 +6,11 @@ dependencies {
     implementation project(':game')
     implementation project(':net')
     implementation project(':util')
+
+    compile 'org.jetbrains.exposed:exposed:0.13.6'
+    compile "org.postgresql:postgresql:42.2.2"
+    compile "mysql:mysql-connector-java:5.1.46"
+    compile "com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre7"
 }
 
 dokka {

@@ -34,18 +34,16 @@ import java.util.Arrays
  * @author Tom <rspsmods@gmail.com>
  */
 open class Player(world: World) : Pawn(world) {
-
+    /**
+     * The display name that will show on the player while in-game.
+     */
+    var username = ""
     /**
      * A persistent and unique id. This is <strong>not</strong> the index
      * of our [Player] when registered to the [World], it is a value determined
      * when the [Player] first registers their account.
      */
     lateinit var uid: PlayerUID
-
-    /**
-     * The display name that will show on the player while in-game.
-     */
-    var username = ""
 
     /**
      * @see Privilege
