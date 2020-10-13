@@ -31,7 +31,11 @@ privileges:
 # Game services
 # You can pick and choose which services you want to run.
 services:
-  - class: gg.rsmod.game.service.serializer.json.JsonPlayerSerializer
+  - class: gg.rsmod.plugins.service.sql.SQLService
+    driver: "org.postgresql.Driver" # Your JBCD connector as explained in Gradel Depdendencies.
+    password: "3eb92644"
+    dbname: "postgres"
+    user: "postgres"
 
   - class: gg.rsmod.game.service.xtea.XteaKeyService
 
