@@ -45,6 +45,7 @@ open class Player(world: World) : Pawn(world) {
      */
     lateinit var uid: PlayerUID
 
+
     /**
      * @see Privilege
      */

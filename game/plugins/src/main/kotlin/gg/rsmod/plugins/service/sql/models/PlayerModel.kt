@@ -1,6 +1,8 @@
 package gg.rsmod.plugins.service.sql.models
 
 import org.jetbrains.exposed.sql.*
+import org.joda.time.DateTime
+import java.time.LocalDateTime
 
 object PlayerModel : Table("Players") {
     val id = integer("id").autoIncrement().primaryKey()
@@ -17,4 +19,23 @@ object PlayerModel : Table("Players") {
     val xteaKeyTwo = integer("xtea_two")
     val xteaKeyThree = integer("xtea_three")
     val xteaKeyFour = integer("xtea_four")
+    val displayNameLastChanged = datetime("display_name_last_changed")
 }
+
+data class Player(
+        val id: Int,
+        val username: String,
+        val displayName: String,
+        val x: Int,
+        val height: Int,
+        val z: Int,
+        val privilege: Int,
+        val runEnergy: Float,
+        val displayMode: Int,
+        val hash: String,
+        val xteaKeyOne: Int,
+        val xteaKeytwo: Int,
+        val xteaKeyThree: Int,
+        val xteaKeyFour: Int,
+        val displayNameLastChanged: DateTime
+)
