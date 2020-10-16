@@ -13,7 +13,6 @@ object Launcher {
                 gameProps = Paths.get("./game.yml"),
                 packets = Paths.get("./data", "packets.yml"),
                 blocks = Paths.get("./data", "blocks.yml"),
-                devProps = Paths.get("./dev-settings.yml"),
-                args = args)
+                devProps = Paths.get("./dev-settings.yml"))
     }
 }

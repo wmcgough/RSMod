@@ -6,9 +6,15 @@ import gg.rsmod.game.model.entity.Client
 import gg.rsmod.game.model.priv.Privilege
 import gg.rsmod.plugins.service.sql.models.*
 import gg.rsmod.plugins.service.sql.serializers.SQLSerializer
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
+import org.joda.time.DateTime
 import java.sql.ResultSet
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.Date
 
 class SaveController : Controller() {
     fun createPlayer(client: Client, world: World): PlayerUID {
@@ -43,7 +49,7 @@ class SaveController : Controller() {
 
             // Since there are n skills
 
-            for(i in 0 until client.getSkills().maxSkills) {
+            for (i in 0 until client.getSkills().maxSkills) {
                 SkillModel.insert {
                     it[this.skill] = i
                     it[this.lvl] = 1
@@ -59,8 +65,8 @@ class SaveController : Controller() {
                 it[this.playerId] = player
             }
         }
-
-        return PlayerUID(player)
+            client.uid = PlayerUID(player)
+            return PlayerUID(player)
     }
 
     fun savePlayer(client: Client): Boolean {
@@ -76,12 +82,12 @@ class SaveController : Controller() {
                 PlayerModel.id eq serialize.player[PlayerModel.id]
             }) {
                 it[username] = client.loginUsername
+                it[displayName] = client.username
                 it[hash] = client.passwordHash
                 it[xteaKeyOne] = client.currentXteaKeys[0]
                 it[xteaKeyTwo] = client.currentXteaKeys[1]
                 it[xteaKeyThree] = client.currentXteaKeys[2]
                 it[xteaKeyFour] = client.currentXteaKeys[3]
-                it[displayName] = client.username
                 it[x] = client.tile.x
                 it[height] = client.tile.height
                 it[z] = client.tile.z

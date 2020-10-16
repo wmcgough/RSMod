@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package gg.rsmod.game.model
 
 import com.google.common.base.Stopwatch

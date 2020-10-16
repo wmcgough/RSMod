@@ -23,7 +23,6 @@ data class JsonPlayerSaveData(val passwordHash: String, val username: String, va
 
         if (passwordHash != other.passwordHash) return false
         if (username != other.username) return false
-        if (displayName != other.displayName) return false
         if (!previousXteas.contentEquals(other.previousXteas)) return false
         if (x != other.x) return false
         if (z != other.z) return false

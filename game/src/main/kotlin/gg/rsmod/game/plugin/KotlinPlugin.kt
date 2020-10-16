@@ -69,6 +69,8 @@ abstract class KotlinPlugin(private val r: PluginRepository, val world: World, v
 
         Files.newBufferedReader(file).use { reader ->
             val data = gson.fromJson(reader, PluginMetadata::class.java)
+            val blah = "";
+            blah.toLowerCase()
             if (data.properties.isNotEmpty()) {
                 properties = mutableMapOf()
                 data.properties.forEach { key, value ->

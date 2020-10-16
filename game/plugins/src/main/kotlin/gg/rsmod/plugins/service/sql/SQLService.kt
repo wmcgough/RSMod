@@ -23,6 +23,7 @@ import gg.rsmod.util.ServerProperties
 import mu.KLogging
 
 import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.transactions.TransactionManager.Companion.isInitialized
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.mindrot.jbcrypt.BCrypt
 import java.util.*
@@ -111,7 +112,6 @@ class SQLService : PlayerSerializerService()
         }
 
         // Load player into client
-
         client.uid = PlayerUID(serialize.player[PlayerModel.id])
         client.passwordHash = serialize.player[PlayerModel.hash]
         client.username = serialize.player[PlayerModel.displayName]
