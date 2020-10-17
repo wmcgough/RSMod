@@ -1,10 +1,6 @@
 package gg.rsmod.plugins.content.mechanics.displayname
 
-import java.nio.file.Files
-import java.nio.file.Paths
-import gg.rsmod.plugins.service.sql.services.PlayerService
 import gg.rsmod.plugins.service.sql.controllers.DisplayNameController
-import gg.rsmod.plugins.service.sql.controllers.SaveController
 
 
 var name = "";
