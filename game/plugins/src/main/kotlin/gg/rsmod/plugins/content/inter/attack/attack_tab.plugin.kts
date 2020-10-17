@@ -45,6 +45,13 @@ on_button(interfaceId = 593, component = 36) {
 }
 
 /**
+ * Toggle special attack from orb.
+ */
+on_button(interfaceId = 160, component = 30) {
+    player.toggleVarp(AttackTab.SPECIAL_ATTACK_VARP)
+}
+
+/**
  * Disable special attack when switching weapons.
  */
 on_equip_to_slot(EquipmentType.WEAPON.id) {

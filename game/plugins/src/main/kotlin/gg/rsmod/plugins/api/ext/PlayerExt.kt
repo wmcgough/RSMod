@@ -301,6 +301,7 @@ fun Player.setVarp(id: Int, value: Int) {
 }
 
 fun Player.toggleVarp(id: Int) {
+    println(varps.getState(id))
     varps.setState(id, varps.getState(id) xor 1)
 }
 
