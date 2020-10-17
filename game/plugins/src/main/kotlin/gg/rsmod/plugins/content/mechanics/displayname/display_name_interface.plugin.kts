@@ -12,7 +12,7 @@ var name = "";
 on_button(261, 75) {
     player.openInterface(interfaceId = 589, dest = InterfaceDestination.TAB_AREA)
     player.setComponentText(interfaceId = 589, component = 6, text = "Next free change:")
-    player.setComponentText(interfaceId = 589, component = 7, text = DisplayNameController().timeUntilNextNameChange(player as Client)) // Make this a method to pull last updated date from your database, return that date, or "Now!"
+    player.setComponentText(interfaceId = 589, component = 7, text = DisplayNameController().timeUntilNextNameChange(player as Client))
     player.setInterfaceEvents(interfaceId = 589, component = 18, range = 0..9, setting = 0)
     player.setVarbit(5605, 1)
 }
@@ -41,7 +41,6 @@ on_button(589, 19) {
         player.setVarbit(5605, 1)
         player.setComponentText(interfaceId = 589, component = 15, text = "")
         DisplayNameController().updatePlayerDisplayName(name, player as Client)
-        player.syncVarp(1055)
         player.queue {
             messageBox("Your display name request  was accepted. Please log out and in for your changes to take effect.")
         }
