@@ -395,3 +395,37 @@ suspend fun QueueTask.produceItemBox(vararg items: Int, title: String = "What wo
 
     logic(player, item, qty)
 }
+
+suspend fun QueueTask.produceItemBox(vararg items: Int, type: Int = 0, title: String = "What would you like to make?", maxItems: Int = player.inventory.capacity, logic: Player.(Int, Int) -> Unit) {
+    val defs = player.world.definitions
+    val itemDefs = items.map { defs.get(ItemDef::class.java, it) }
+
+    val baseChild = 14
+    val itemArray = Array(10) { -1 }
+    val nameArray = Array(10) { "|" }
+
+    itemDefs.withIndex().forEach {
+        val def = it.value
+        itemArray[it.index] = def.id
+        nameArray[it.index] = "|${def.name}"
+    }
+
+    player.sendTempVarbit(5983, 1)
+    player.openInterface(parent = 162, child = CHATBOX_CHILD, interfaceId = 270)
+    player.runClientScript(2046, type, "$title${nameArray.joinToString("")}", maxItems, *itemArray)
+
+    terminateAction = closeDialog
+    waitReturnValue()
+    terminateAction!!(this)
+
+    val msg = requestReturnValue as? ResumePauseButtonMessage ?: return
+    val child = msg.component
+
+    if (child < baseChild || child >= baseChild + items.size)
+        return
+
+    val item = items[child - baseChild]
+    val qty = msg.slot
+
+    logic(player, item, qty)
+}

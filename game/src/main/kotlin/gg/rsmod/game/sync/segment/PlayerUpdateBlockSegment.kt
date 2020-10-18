@@ -179,6 +179,12 @@ class PlayerUpdateBlockSegment(val other: Player, private val newPlayer: Boolean
                         }
                     }
 
+                    animations.forEachIndexed { index, _ ->
+                        if (other.forcedAnimations[index] != -1) {
+                            animations[index] = other.forcedAnimations[index]
+                        }
+                    }
+
                     animations.forEach { anim ->
                         appBuf.put(DataType.SHORT, anim)
                     }

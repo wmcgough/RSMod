@@ -354,6 +354,16 @@ abstract class Pawn(val world: World) : Entity() {
     }
 
     /**
+     * Array of animations that will be forced to be played regardless of anything else
+     */
+    val forcedAnimations = IntArray(7) { -1 }
+
+    fun forceAnimations(anim: Int) {
+        forcedAnimations.forEachIndexed { i, _ -> forcedAnimations[i] = anim }
+        addBlock(UpdateBlockType.APPEARANCE)
+    }
+
+    /**
      * Walk to all the tiles specified in our [path] queue, using [stepType] as
      * the [MovementQueue.StepType].
      */

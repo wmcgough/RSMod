@@ -83,6 +83,7 @@ object ObjectPathAction {
 
         walk(player, obj, lineOfSightRange) {
             if (!player.world.plugins.executeObject(player, obj.getTransform(player), opt!!)) {
+                player.writeMessage(obj.id.toString())
                 player.writeMessage(Entity.NOTHING_INTERESTING_HAPPENS)
                 if (player.world.devContext.debugObjects) {
                     player.writeMessage("Unhandled object action: [opt=$opt, id=${obj.id}, type=${obj.type}, rot=${obj.rot}, x=${obj.tile.x}, z=${obj.tile.z}]")
