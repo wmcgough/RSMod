@@ -103,11 +103,11 @@ class Server {
                 preloadMaps = gameProperties.getOrDefault("preload-maps", false))
 
         val devContext = DevContext(
-                debugExamines = devProperties.getOrDefault("debug-examines", false),
-                debugObjects = devProperties.getOrDefault("debug-objects", false),
-                debugButtons = devProperties.getOrDefault("debug-buttons", false),
-                debugItemActions = devProperties.getOrDefault("debug-items", false),
-                debugMagicSpells = devProperties.getOrDefault("debug-spells", false))
+                debugExamines = devProperties.getOrDefault("debug-examines", true),
+                debugObjects = devProperties.getOrDefault("debug-objects", true),
+                debugButtons = devProperties.getOrDefault("debug-buttons", true),
+                debugItemActions = devProperties.getOrDefault("debug-items", true),
+                debugMagicSpells = devProperties.getOrDefault("debug-spells", true))
 
         val world = World(gameContext, devContext)
 
