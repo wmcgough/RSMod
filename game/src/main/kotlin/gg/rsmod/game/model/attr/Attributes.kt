@@ -28,6 +28,11 @@ val NEW_ACCOUNT_ATTR = AttributeKey<Boolean>()
 val NO_CLIP_ATTR = AttributeKey<Boolean>()
 
 /**
+ * The step that the player is currently on for the gnome agility course
+ */
+val GNOME_COURSE_PROGRESS = AttributeKey<Int>("gnomeCourse")
+
+/**
  * A flag that indicates whether or not this player has protect-item
  * prayer active.
  */

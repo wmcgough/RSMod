@@ -1,8 +1,8 @@
 package gg.rsmod.plugins.api.cfg
 
 object Anims {
-    const val STANDING_ON_BALANCE = 763
-    const val WALKING_ON_BALANCE = 762
+    const val STANDING_ON_LOG_BALANCE = 763
+    const val WALKING_ON_LOG_BALANCE = 762
     const val CLIMB_OVER_NET = 828
     const val CLIMB_BRANCH = 828
     const val PIPE_CRAWL = 749
